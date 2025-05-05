@@ -37,3 +37,12 @@ This project is meant for fun, parody, and perhaps minor philosophical clarity. 
 
 > _“In matters of time, we must first agree on what time means.”_  
 > — The Secretariat for Temporal Standardization (unofficial)
+
+✅ File Descriptions
+index.html
+
+    The login interface for the delegate. Styled like an official portal with a coded credential gate. Contains JavaScript logic to validate login and redirect authorized users to resolution.html.
+
+vote.html
+
+    The ratification terminal. Displays the formal resolution text and allows the delegate to cast a vote. Reacts to vote choice and displays percentage of support based on weighted votes.
