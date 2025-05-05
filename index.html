@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UN Department of Temporal Standardization</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background-color: #0b1f3a;
+      color: #f1f1f1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    .login-box {
+      background-color: #112b4d;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+      max-width: 400px;
+      width: 90%;
+    }
+    input[type="text"], input[type="password"] {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 6px;
+      background: #1a3557;
+      color: #f1f1f1;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #4da6ff;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.8);
+      color: white;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-box">
+    <h1>UN Department of Temporal Standardization</h1>
+    <p>Secure Delegate Login</p>
+    <input type="text" id="delegateId" placeholder="Delegate ID" />
+    <input type="password" id="authCode" placeholder="Authentication Code" />
+    <button onclick="checkCredentials()">Login</button>
+  </div>
+
+  <div class="modal" id="errorModal">
+    <div>
+      <h2>Invalid Credentials</h2>
+      <p>Please consult the Secretariat and retry.</p>
+      <button onclick="location.reload()">Retry</button>
+    </div>
+  </div>
+
+  <script>
+    function checkCredentials() {
+      const id = document.getElementById('delegateId').value.trim();
+      const code = document.getElementById('authCode').value.trim();
+      if (id === 'UN-DSR-0425-V' && code === 'Δϟ-XC-4019/RATIFY') {
+        window.location.href = 'vote.html';
+      } else {
+        document.getElementById('errorModal').style.display = 'flex';
+      }
+    }
+  </script>
+</body>
+</html>
