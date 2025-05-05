@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resolution A/RES/0425 (V)</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background-color: #0b1f3a;
+      color: #f1f1f1;
+      padding: 40px;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: #112b4d;
+      padding: 30px;
+      border-radius: 10px;
+    }
+    h1 {
+      font-size: 1.8rem;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .resolution p {
+      margin-bottom: 10px;
+    }
+    .vote-section {
+      margin-top: 20px;
+      text-align: center;
+    }
+    label {
+      display: block;
+      margin: 10px 0;
+      font-size: 1.1rem;
+    }
+    button {
+      padding: 12px 25px;
+      background-color: #4da6ff;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.8);
+      color: white;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Resolution A/RES/0425 (V)</h1>
+    <div class="resolution">
+      <p><em>Recognizing</em> the necessity of temporal precision in informal communications,</p>
+      <p><em>Acknowledging</em> the recurring ambiguity in the use of terms such as "evening" and "night",</p>
+      <p><em>Recalling</em> the need for internal standardization across all parties involved,</p>
+      <p><em>Determined</em> to minimize interpretational conflict in casual scheduling,</p>
+      <br />
+      <p>1. <strong>Defines</strong> “Morning” as 00:00 hrs to 11:59 hrs IST</p>
+      <p>2. <strong>Declares</strong> “Afternoon” as 12:00 hrs to 16:59 hrs IST</p>
+      <p>3. <strong>Recognizes</strong> “Evening” as 17:00 hrs to 20:59 hrs IST</p>
+      <p>4. <strong>Affirms</strong> “Night” as 21:00 hrs to 23:59 hrs IST</p>
+      <p>5. <strong>Establishes</strong> this lexicon as binding in all future informal communications</p>
+      <p>6. <strong>Requests</strong> delegates to ratify via affirmative vote</p>
+    </div>
+    <div class="vote-section">
+      <p><strong>Do you ratify Resolution A/RES/0425 (V)?</strong></p>
+      <label><input type="radio" name="vote" value="1" /> Yes</label>
+      <label><input type="radio" name="vote" value="2" /> Absolutely Yes</label>
+      <button onclick="submitVote()">Cast Vote</button>
+    </div>
+  </div>
+
+  <div class="modal" id="resultModal">
+    <div>
+      <h2 id="resultTitle"></h2>
+      <p id="resultText"></p>
+    </div>
+  </div>
+
+  <script>
+    function submitVote() {
+      const votes = document.getElementsByName("vote");
+      let userVote = 0;
+      for (const v of votes) {
+        if (v.checked) userVote = parseInt(v.value);
+      }
+      if (userVote === 0) return alert("Please select a vote option.");
+      const totalVotes = 2 + userVote;
+      let resultText = "";
+      let resultTitle = "Resolution Ratified";
+      if (totalVotes === 3) {
+        resultText = "The resolution has been ratified with 75% support (3/4 votes).";
+      } else {
+        resultText = "The resolution has been ratified with 100% support (4/4 votes).\nYour commitment to linguistic clarity and bureaucratic greatness is noted with distinction.";
+      }
+      document.getElementById("resultTitle").innerText = resultTitle;
+      document.getElementById("resultText").innerText = resultText;
+      document.getElementById("resultModal").style.display = "flex";
+    }
+  </script>
+</body>
+</html>
